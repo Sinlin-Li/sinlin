@@ -3202,10 +3202,53 @@ h1.page-title + .tag-cloud-list {
 }
 #footer {
   position: relative;
+}
+#  background-color: $light-blue {
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: cover;
+}
+#  background-color: $light-blue:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mark-bg);
+  content: '';
+}
+#footer-wrap {
+  position: relative;
+  padding: 40px 20px;
+  color: var(--light-grey);
+  text-align: center;
+}
+#footer-wrap a {
+  color: var(--light-grey);
+}
+#footer-wrap a:hover {
+  text-decoration: underline;
+}
+#footer-wrap .footer-separator {
+  margin: 0 4px;
+}
+#footer-wrap .icp-icon {
+  padding: 0 4px;
+  max-height: 1.4em;
+  width: auto;
+  vertical-align: text-bottom;
+}
+#footer {
+  position: relative;
   background-color: #49b1f5;
   background-attachment: scroll;
   background-position: bottom;
   background-size: cover;
+}
+#footer:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mark-bg);
+  content: '';
 }
 #footer-wrap {
   position: relative;
@@ -3240,13 +3283,6 @@ h1.page-title + .tag-cloud-list {
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-}
-#page-header:not(.not-top-img):before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--mark-bg);
-  content: '';
 }
 #page-header.full_page {
   height: 100vh;
