@@ -1,184 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>我的ACM模板 | Sinlin's Blog</title><meta name="author" content="Sinlin"><meta name="copyright" content="Sinlin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Sinlin的ACM模板  枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造  基本模板 #pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;) &#x2F;&#x2F; #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4.1,sse4.2,avx,">
-<meta property="og:type" content="article">
-<meta property="og:title" content="我的ACM模板">
-<meta property="og:url" content="http://www.sinlin.eu.org/posts/1694384414.html">
-<meta property="og:site_name" content="Sinlin&#39;s Blog">
-<meta property="og:description" content="Sinlin的ACM模板  枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造  基本模板 #pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;) &#x2F;&#x2F; #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4.1,sse4.2,avx,">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png">
-<meta property="article:published_time" content="2023-10-30T10:48:11.293Z">
-<meta property="article:modified_time" content="2023-10-30T10:51:13.745Z">
-<meta property="article:author" content="Sinlin">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.sinlin.eu.org/posts/1694384414.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: undefined,
-  highlight: undefined,
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '我的ACM模板',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2023-10-30 18:51:13'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
-    
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
-    
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
-    
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
-    
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
-    
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
-  const $loadingBox = document.getElementById('loading-box')
-  const $body = document.body
-  const preloader = {
-    endLoading: () => {
-      $body.style.overflow = ''
-      $loadingBox.classList.add('loaded')
-    },
-    initLoading: () => {
-      $body.style.overflow = 'hidden'
-      $loadingBox.classList.remove('loaded')
-    }
-  }
-
-  preloader.initLoading()
-  window.addEventListener('load',() => { preloader.endLoading() })
-
-  if (false) {
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-  }
-})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background: rgb(0,0,0,0)"><nav id="nav"><span id="blog-info"><a href="/" title="Sinlin's Blog"><span class="site-name">Sinlin's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">我的ACM模板</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-30T10:48:11.293Z" title="发表于 2023-10-30 18:48:11">2023-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-30T10:51:13.745Z" title="更新于 2023-10-30 18:51:13">2023-10-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="我的ACM模板"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 align="center"><font size="6">Sinlin的ACM模板</font></h1>
-<div align='center'>
-<font size="4">枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造</font>
-</div>
-<h3 id="基本模板">基本模板</h3>
-<pre><code class="language-cpp">#pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;)
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>我的ACM模板 | Sinlin's Blog</title><meta name="author" content="Sinlin"><meta name="copyright" content="Sinlin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Sinlin的ACM模板  枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造  基本模板 #pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;) &#x2F;&#x2F; #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4.1,sse4.2,avx,"><meta property="og:type" content="article"><meta property="og:title" content="我的ACM模板"><meta property="og:url" content="http://www.sinlin.eu.org/posts/1694384414.html"><meta property="og:site_name" content="Sinlin&#39;s Blog"><meta property="og:description" content="Sinlin的ACM模板  枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造  基本模板 #pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;) &#x2F;&#x2F; #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4.1,sse4.2,avx,"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png"><meta property="article:published_time" content="2023-10-30T10:48:11.293Z"><meta property="article:modified_time" content="2023-10-30T10:51:13.745Z"><meta property="article:author" content="Sinlin"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.sinlin.eu.org/posts/1694384414.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><meta><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG={root:"/",algolia:void 0,localSearch:{path:"/search.xml",preload:!1,top_n_per_article:1,unescape:!1,languages:{hits_empty:"找不到您查询的内容：${query}",hits_stats:"共找到 ${hits} 篇文章"}},translate:{defaultEncoding:2,translateDelay:0,msgToTraditionalChinese:"繁",msgToSimplifiedChinese:"簡"},noticeOutdate:void 0,highlight:void 0,copy:{success:"复制成功",error:"复制错误",noSupport:"浏览器不支持"},relativeDate:{homepage:!1,post:!1},runtime:"天",dateSuffix:{just:"刚刚",min:"分钟前",hour:"小时前",day:"天前",month:"个月前"},copyright:void 0,lightbox:"fancybox",Snackbar:void 0,infinitegrid:{js:"https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js",buttonText:"加载更多"},isPhotoFigcaption:!1,islazyload:!1,isAnchor:!1,percent:{toc:!0,rightside:!1},autoDarkmode:!1}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"我的ACM模板",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2023-10-30 18:51:13"}</script><script>(e=>{e.saveToLocal={set:(e,t,o)=>{if(0===o)return;const a={value:t,expiry:Date.now()+864e5*o};localStorage.setItem(e,JSON.stringify(a))},get:e=>{const t=localStorage.getItem(e);if(!t)return;const o=JSON.parse(t);if(!(Date.now()>o.expiry))return o.value;localStorage.removeItem(e)}},e.getScript=(e,t={})=>new Promise((o,a)=>{const n=document.createElement("script");n.src=e,n.async=!0,n.onerror=a,n.onload=n.onreadystatechange=function(){const e=this.readyState;e&&"loaded"!==e&&"complete"!==e||(n.onload=n.onreadystatechange=null,o())},Object.keys(t).forEach(e=>{n.setAttribute(e,t[e])}),document.head.appendChild(n)}),e.getCSS=(e,t=!1)=>new Promise((o,a)=>{const n=document.createElement("link");n.rel="stylesheet",n.href=e,t&&(n.id=t),n.onerror=a,n.onload=n.onreadystatechange=function(){const e=this.readyState;e&&"loaded"!==e&&"complete"!==e||(n.onload=n.onreadystatechange=null,o())},document.head.appendChild(n)}),e.activateDarkMode=()=>{document.documentElement.setAttribute("data-theme","dark"),null!==document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute("content","#0d0d0d")},e.activateLightMode=()=>{document.documentElement.setAttribute("data-theme","light"),null!==document.querySelector('meta[name="theme-color"]')&&document.querySelector('meta[name="theme-color"]').setAttribute("content","#ffffff")};const t=saveToLocal.get("theme");"dark"===t?activateDarkMode():"light"===t&&activateLightMode();const o=saveToLocal.get("aside-status");void 0!==o&&("hide"===o?document.documentElement.classList.add("hide-aside"):document.documentElement.classList.remove("hide-aside"));/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)&&document.documentElement.classList.add("apple")})(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{const d=document.getElementById("loading-box"),e=document.body,o=()=>{e.style.overflow="",d.classList.add("loaded")},l=()=>{e.style.overflow="hidden",d.classList.remove("loaded")};l(),window.addEventListener("load",()=>{o()})})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background:rgb(0,0,0,0)"><nav id="nav"><span id="blog-info"><a href="/" title="Sinlin's Blog"><span class="site-name">Sinlin's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">我的ACM模板</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-30T10:48:11.293Z" title="发表于 2023-10-30 18:48:11">2023-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-30T10:51:13.745Z" title="更新于 2023-10-30 18:51:13">2023-10-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="我的ACM模板"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 align="center"><font size="6">Sinlin的ACM模板</font></h1><div align="center"><font size="4">枚举 模拟 递归 分治 贪心 排序 前缀和 差分 二分 倍增 构造</font></div><h3 id="基本模板">基本模板</h3><pre><code class="language-cpp">#pragma GCC optimize(&quot;O2,inline,unroll-all-loops,no-stack-protector&quot;)
 // #pragma GCC target(&quot;sse,sse2,sse3,ssse3,sse4.1,sse4.2,avx,avx2,popcnt,tune=native&quot;)
 
 #include &lt;cassert&gt;
@@ -269,31 +89,13 @@ signed main()
 
     return 0;
 &#125;
-</code></pre>
-<h3 id="基础算法">基础算法</h3>
-<h4 id="二维前缀和">二维前缀和</h4>
-<p>S[i, j] = 第i行j列格子左上部分所有元素的和<br>
-以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：<br>
-S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]</p>
-<h4 id="二维差分">二维差分</h4>
-<p>给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：<br>
-S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c</p>
-<h4 id="位运算">位运算</h4>
-<p>求n的第k位数字: n &gt;&gt; k &amp; 1<br>
-返回n的最后一位1：lowbit(n) = n &amp; -n</p>
-<h4 id="双指针算法">双指针算法</h4>
-<p>常见问题分类：<br>
-(1) 对于一个序列，用两个指针维护一段区间<br>
-(2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作</p>
-<pre><code class="language-cpp">for (int i = 0, j = 0; i &lt; n; i ++ )
+</code></pre><h3 id="基础算法">基础算法</h3><h4 id="二维前缀和">二维前缀和</h4><p>S[i, j] = 第i行j列格子左上部分所有元素的和<br>以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：<br>S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]</p><h4 id="二维差分">二维差分</h4><p>给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：<br>S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c</p><h4 id="位运算">位运算</h4><p>求n的第k位数字: n &gt;&gt; k &amp; 1<br>返回n的最后一位1：lowbit(n) = n &amp; -n</p><h4 id="双指针算法">双指针算法</h4><p>常见问题分类：<br>(1) 对于一个序列，用两个指针维护一段区间<br>(2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作</p><pre><code class="language-cpp">for (int i = 0, j = 0; i &lt; n; i ++ )
 &#123;
     while (j &lt; i &amp;&amp; check(i, j)) j ++ ;
 
     // 具体问题的逻辑
 &#125;
-</code></pre>
-<h4 id="离散化">离散化</h4>
-<pre><code class="language-cpp">vector&lt;int&gt; alls; // 存储所有待离散化的值
+</code></pre><h4 id="离散化">离散化</h4><pre><code class="language-cpp">vector&lt;int&gt; alls; // 存储所有待离散化的值
 sort(alls.begin(), alls.end()); // 将所有值排序
 alls.resize(unique(alls.begin(), alls.end()) - alls.begin());   // 去掉重复元素
 
@@ -301,9 +103,7 @@ inline int find(int x)
 &#123;
     return lower_bound(alls.begin(), alls.end(),x)-alls.begin()+1;
 &#125;
-</code></pre>
-<h4 id="区间合并">区间合并</h4>
-<pre><code class="language-cpp">// 将所有存在交集的区间合并
+</code></pre><h4 id="区间合并">区间合并</h4><pre><code class="language-cpp">// 将所有存在交集的区间合并
 void merge(vector&lt;PII&gt; &amp;segs)
 &#123;
     vector&lt;PII&gt; res;
@@ -323,31 +123,20 @@ void merge(vector&lt;PII&gt; &amp;segs)
 
     segs = res;
 &#125;
-</code></pre>
-<h4 id="单调栈">单调栈</h4>
-<p>常见模型：找出每个数左边离它最近的比它大/小的数</p>
-<pre><code class="language-cpp">int tt = 0;
+</code></pre><h4 id="单调栈">单调栈</h4><p>常见模型：找出每个数左边离它最近的比它大/小的数</p><pre><code class="language-cpp">int tt = 0;
 for (int i = 1; i &lt;= n; i ++ )
 &#123;
     while (tt &amp;&amp; check(stk[tt], i)) tt -- ;
     stk[ ++ tt] = i;
 &#125;
-</code></pre>
-<h4 id="单调队列">单调队列</h4>
-<p>常见模型：找出滑动窗口中的最大值/最小值</p>
-<pre><code class="language-cpp">int hh = 0, tt = -1;
+</code></pre><h4 id="单调队列">单调队列</h4><p>常见模型：找出滑动窗口中的最大值/最小值</p><pre><code class="language-cpp">int hh = 0, tt = -1;
 for (int i = 0; i &lt; n; i ++ )
 &#123;
     while (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++ ;  // 判断队头是否滑出窗口
     while (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt -- ;
     q[ ++ tt] = i;
 &#125;
-</code></pre>
-<h4 id="排序">排序</h4>
-<ul>
-<li>快速排序</li>
-</ul>
-<pre><code class="language-cpp">void quick_sort(int q[], int l, int r)
+</code></pre><h4 id="排序">排序</h4><ul><li>快速排序</li></ul><pre><code class="language-cpp">void quick_sort(int q[], int l, int r)
 &#123;
     if (l &gt;= r) return;
 
@@ -360,11 +149,7 @@ for (int i = 0; i &lt; n; i ++ )
     &#125;
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
 &#125;
-</code></pre>
-<ul>
-<li>归并排序</li>
-</ul>
-<pre><code class="language-cpp">void merge_sort(int q[], int l, int r)
+</code></pre><ul><li>归并排序</li></ul><pre><code class="language-cpp">void merge_sort(int q[], int l, int r)
 &#123;
     if (l &gt;= r) return;
 
@@ -382,10 +167,7 @@ for (int i = 0; i &lt; n; i ++ )
 
     for (i = l, j = 0; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];
 &#125;
-</code></pre>
-<h3 id="字符串">字符串</h3>
-<h4 id="KMP">KMP</h4>
-<pre><code class="language-cpp">// s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
+</code></pre><h3 id="字符串">字符串</h3><h4 id="KMP">KMP</h4><pre><code class="language-cpp">// s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
 求模式串的Next数组：
 for (int i = 2, j = 0; i &lt;= m; i ++ )
 &#123;
@@ -405,9 +187,7 @@ for (int i = 1, j = 0; i &lt;= n; i ++ )
         // 匹配成功后的逻辑
     &#125;
 &#125;
-</code></pre>
-<h4 id="Trie树">Trie树</h4>
-<pre><code class="language-cpp">int son[N][26], cnt[N], idx;
+</code></pre><h4 id="Trie树">Trie树</h4><pre><code class="language-cpp">int son[N][26], cnt[N], idx;
 // 0号点既是根节点，又是空节点
 // son[][]存储树中每个节点的子节点
 // cnt[]存储以每个节点结尾的单词数量
@@ -437,11 +217,7 @@ int query(char *str)
     &#125;
     return cnt[p];
 &#125;
-</code></pre>
-<h4 id="字符串哈希">字符串哈希</h4>
-<p>核心思想：将字符串看成P进制数，P的经验值是131或13331，取这两个值的冲突概率低<br>
-取模的数用2^64，这样直接用unsigned long long自然溢出的结果就是取模的结果</p>
-<pre><code class="language-cpp">typedef pair&lt;int, int&gt; pii;
+</code></pre><h4 id="字符串哈希">字符串哈希</h4><p>核心思想：将字符串看成P进制数，P的经验值是131或13331，取这两个值的冲突概率低<br>取模的数用2^64，这样直接用unsigned long long自然溢出的结果就是取模的结果</p><pre><code class="language-cpp">typedef pair&lt;int, int&gt; pii;
 
 struct Hash 
 &#123;
@@ -463,9 +239,7 @@ struct Hash
         return (pre[r] - pre[l - 1] * pp[r - l + 1] % MOD + MOD) % MOD;
     &#125;
 &#125; hs1(233, 998244353), hs2(1331, 1000000007);
-</code></pre>
-<h4 id="manacher">manacher</h4>
-<pre><code class="language-cpp">const int N = 2e7 + 10;
+</code></pre><h4 id="manacher">manacher</h4><pre><code class="language-cpp">const int N = 2e7 + 10;
 char a[N];
 char s[N&lt;&lt;1];
 int p[N&lt;&lt;1];
@@ -508,24 +282,18 @@ void manacher()
         &#125;
     &#125;
 &#125;
-</code></pre>
-<h4 id="后缀自动机">后缀自动机</h4>
-<p>一、SAM的性质:</p>
-<pre><code>SAM是个状态机。一个起点，若干终点。原串的所有子串和从SAM起点开始的所有路径一一对应，不重不漏。所以终点就是包含后缀的点。
+</code></pre><h4 id="后缀自动机">后缀自动机</h4><p>一、SAM的性质:</p><pre><code>SAM是个状态机。一个起点，若干终点。原串的所有子串和从SAM起点开始的所有路径一一对应，不重不漏。所以终点就是包含后缀的点。
 每个点包含若干子串，每个子串都一一对应一条从起点到该点的路径。且这些子串一定是里面最长子串的连续后缀。
 SAM问题中经常考虑两种边：
 (1) 普通边，类似于Trie。表示在某个状态所表示的所有子串的后面添加一个字符。
 (2) Link、Father。表示将某个状态所表示的最短子串的首字母删除。这类边构成一棵树。
-</code></pre>
-<p>二、SAM的构造思路</p>
-<pre><code>endpos(s)：子串s所有出现的位置（尾字母下标）集合。SAM中的每个状态都一一对应一个endpos的等价类。
+</code></pre><p>二、SAM的构造思路</p><pre><code>endpos(s)：子串s所有出现的位置（尾字母下标）集合。SAM中的每个状态都一一对应一个endpos的等价类。
 endpos的性质：
 (1) 令 s1,s2 为 S 的两个子串 ，不妨设 |s1|≤|s2| （我们用 |s| 表示 s 的长度 ，此处等价于 s1 不长于 s2 ）。则 s1 是 s2 的后缀当且仅当 endpos(s1)⊇endpos(s2) ，s1 不是 s2 的后缀当且仅当 endpos(s1)∩endpos(s2)=∅　。
 (2) 两个不同子串的endpos，要么有包含关系，要么没有交集。
 (3) 两个子串的endpos相同，那么短串为长串的后缀。
 (4) 对于一个状态 st ，以及任意的 longest(st) 的后缀 s ，如果 s 的长度满足：|shortest(st)|≤|s|≤|longsest(st)| ，那么 s∈substrings(st) 。
-</code></pre>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
+</code></pre><pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 
@@ -592,9 +360,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<h4 id="最小表示法">最小表示法</h4>
-<pre><code class="language-cpp">using namespace std;
+</code></pre><h4 id="最小表示法">最小表示法</h4><pre><code class="language-cpp">using namespace std;
 
 const int N = 2000010;
 
@@ -621,10 +387,7 @@ int get_min(char s[])
     n = strlen(a);
     memcpy(a + n, a, n);
     int x = get_min(a);
-</code></pre>
-<h3 id="图论">图论</h3>
-<h4 id="邻接表">邻接表</h4>
-<pre><code class="language-cpp">int h[N], e[N], ne[N], idx;
+</code></pre><h3 id="图论">图论</h3><h4 id="邻接表">邻接表</h4><pre><code class="language-cpp">int h[N], e[N], ne[N], idx;
 
 // 添加一条边a-&gt;b
 void add(int a, int b)
@@ -635,9 +398,7 @@ void add(int a, int b)
 // 初始化
 idx = 0;
 memset(h, -1, sizeof h);
-</code></pre>
-<h4 id="拓扑排序">拓扑排序</h4>
-<pre><code class="language-cpp">bool topsort()
+</code></pre><h4 id="拓扑排序">拓扑排序</h4><pre><code class="language-cpp">bool topsort()
 &#123;
     int hh = 0, tt = -1;
 
@@ -661,10 +422,7 @@ memset(h, -1, sizeof h);
     // 如果所有点都入队了，说明存在拓扑序列；否则不存在拓扑序列。
     return tt == n - 1;
 &#125;
-</code></pre>
-<h4 id="朴素dijkstra算法">朴素dijkstra算法</h4>
-<p>时间复杂度 O(n^2+m)</p>
-<pre><code class="language-cpp">int g[N][N];  // 存储每条边
+</code></pre><h4 id="朴素dijkstra算法">朴素dijkstra算法</h4><p>时间复杂度 O(n^2+m)</p><pre><code class="language-cpp">int g[N][N];  // 存储每条边
 int dist[N];  // 存储1号点到每个点的最短距离
 bool st[N];   // 存储每个点的最短路是否已经确定
 
@@ -691,10 +449,7 @@ int dijkstra()
     if (dist[n] == 0x3f3f3f3f) return -1;
     return dist[n];
 &#125;
-</code></pre>
-<h4 id="堆优化版dijkstra">堆优化版dijkstra</h4>
-<p>时间复杂度 O(mlogn)</p>
-<pre><code class="language-cpp">typedef pair&lt;int, int&gt; PII;
+</code></pre><h4 id="堆优化版dijkstra">堆优化版dijkstra</h4><p>时间复杂度 O(mlogn)</p><pre><code class="language-cpp">typedef pair&lt;int, int&gt; PII;
 
 int n;      // 点的数量
 int h[N], w[N], e[N], ne[N], idx;       // 邻接表存储所有边
@@ -733,10 +488,7 @@ int dijkstra()
     if (dist[n] == 0x3f3f3f3f) return -1;
     return dist[n];
 &#125;
-</code></pre>
-<h4 id="Bellman-Ford算法-——-有边数限制的最短路">Bellman-Ford算法 —— 有边数限制的最短路</h4>
-<p>时间复杂度 O(nm)</p>
-<pre><code class="language-cpp">注意在模板题中需要对下面的模板稍作修改，加上备份数组，详情见模板题。
+</code></pre><h4 id="Bellman-Ford算法-——-有边数限制的最短路">Bellman-Ford算法 —— 有边数限制的最短路</h4><p>时间复杂度 O(nm)</p><pre><code class="language-cpp">注意在模板题中需要对下面的模板稍作修改，加上备份数组，详情见模板题。
 
 int n, m;       // n表示点数，m表示边数
 int dist[N];        // dist[x]存储1到x的最短路距离
@@ -766,10 +518,7 @@ int bellman_ford()
     if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
     return dist[n];
 &#125;
-</code></pre>
-<h4 id="spfa-算法（队列优化的Bellman-Ford算法）">spfa 算法（队列优化的Bellman-Ford算法）</h4>
-<p>时间复杂度 平均情况下 O(m)</p>
-<pre><code class="language-cpp">int n;      // 总点数
+</code></pre><h4 id="spfa-算法（队列优化的Bellman-Ford算法）">spfa 算法（队列优化的Bellman-Ford算法）</h4><p>时间复杂度 平均情况下 O(m)</p><pre><code class="language-cpp">int n;      // 总点数
 int h[N], w[N], e[N], ne[N], idx;       // 邻接表存储所有边
 int dist[N];        // 存储每个点到1号点的最短距离
 bool st[N];     // 存储每个点是否在队列中
@@ -809,10 +558,7 @@ int spfa()
     if (dist[n] == 0x3f3f3f3f) return -1;
     return dist[n];
 &#125;
-</code></pre>
-<h4 id="spfa判断图中是否存在负环">spfa判断图中是否存在负环</h4>
-<p>时间复杂度是 O(nm)</p>
-<pre><code class="language-cpp">int n;      // 总点数
+</code></pre><h4 id="spfa判断图中是否存在负环">spfa判断图中是否存在负环</h4><p>时间复杂度是 O(nm)</p><pre><code class="language-cpp">int n;      // 总点数
 int h[N], w[N], e[N], ne[N], idx;       // 邻接表存储所有边
 int dist[N], cnt[N];        // dist[x]存储1号点到x的最短距离，cnt[x]存储1到x的最短路中经过的点数
 bool st[N];     // 存储每个点是否在队列中
@@ -856,9 +602,7 @@ bool spfa()
 
     return false;
 &#125;
-</code></pre>
-<h4 id="floyd算法">floyd算法</h4>
-<pre><code class="language-cpp">//初始化：
+</code></pre><h4 id="floyd算法">floyd算法</h4><pre><code class="language-cpp">//初始化：
     for (int i = 1; i &lt;= n; i ++ )
         for (int j = 1; j &lt;= n; j ++ )
             if (i == j) d[i][j] = 0;
@@ -872,10 +616,7 @@ void floyd()
             for (int j = 1; j &lt;= n; j ++ )
                 d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
 &#125;
-</code></pre>
-<h4 id="朴素版prim算法">朴素版prim算法</h4>
-<p>时间复杂度是 O(n^2+m)</p>
-<pre><code class="language-cpp">int n;      // n表示点数
+</code></pre><h4 id="朴素版prim算法">朴素版prim算法</h4><p>时间复杂度是 O(n^2+m)</p><pre><code class="language-cpp">int n;      // n表示点数
 int g[N][N];        // 邻接矩阵，存储所有边
 int dist[N];        // 存储其他点到当前最小生成树的距离
 bool st[N];     // 存储每个点是否已经在生成树中
@@ -903,10 +644,7 @@ int prim()
 
     return res;
 &#125;
-</code></pre>
-<h4 id="Kruskal算法-——-求最小生成树">Kruskal算法 —— 求最小生成树</h4>
-<p>时间复杂度是 O(mlogm)</p>
-<pre><code class="language-cpp">int n, m;       // n是点数，m是边数
+</code></pre><h4 id="Kruskal算法-——-求最小生成树">Kruskal算法 —— 求最小生成树</h4><p>时间复杂度是 O(mlogm)</p><pre><code class="language-cpp">int n, m;       // n是点数，m是边数
 int p[N];       // 并查集的父节点数组
 
 struct Edge     // 存储边
@@ -948,9 +686,7 @@ int kruskal()
     if (cnt &lt; n - 1) return INF;
     return res;
 &#125;
-</code></pre>
-<h4 id="染色法判别二分图">染色法判别二分图</h4>
-<pre><code class="language-cpp">int n;      // n表示点数
+</code></pre><h4 id="染色法判别二分图">染色法判别二分图</h4><pre><code class="language-cpp">int n;      // n表示点数
 int h[N], e[M], ne[M], idx;     // 邻接表存储图
 int color[N];       // 表示每个点的颜色，-1表示未染色，0表示白色，1表示黑色
 
@@ -984,10 +720,7 @@ bool check()
             &#125;
     return flag;
 &#125;
-</code></pre>
-<h4 id="匈牙利算法-——-二分图的最大匹配">匈牙利算法 —— 二分图的最大匹配</h4>
-<p>时间复杂度是 O(nm)</p>
-<pre><code class="language-cpp">int n1, n2;     // n1表示第一个集合中的点数，n2表示第二个集合中的点数
+</code></pre><h4 id="匈牙利算法-——-二分图的最大匹配">匈牙利算法 —— 二分图的最大匹配</h4><p>时间复杂度是 O(nm)</p><pre><code class="language-cpp">int n1, n2;     // n1表示第一个集合中的点数，n2表示第二个集合中的点数
 int h[N], e[M], ne[M], idx;     // 邻接表存储所有边，匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边
 int match[N];       // 存储第二个集合中的每个点当前匹配的第一个集合中的点是哪个
 bool st[N];     // 表示第二个集合中的每个点是否已经被遍历过
@@ -1018,11 +751,7 @@ for (int i = 1; i &lt;= n1; i ++ )
     memset(st, false, sizeof st);
     if (find(i)) res ++ ;
 &#125;
-</code></pre>
-<ul>
-<li>试除法分解质因数</li>
-</ul>
-<pre><code class="language-CPP">void divide(int x)
+</code></pre><ul><li>试除法分解质因数</li></ul><pre><code class="language-CPP">void divide(int x)
 &#123;
     for (int i = 2; i &lt;= x / i; i ++ )
         if (x % i == 0)
@@ -1034,10 +763,7 @@ for (int i = 1; i &lt;= n1; i ++ )
     if (x &gt; 1) cout &lt;&lt; x &lt;&lt; ' ' &lt;&lt; 1 &lt;&lt; endl;
     cout &lt;&lt; endl;
 &#125;
-</code></pre>
-<h3 id="数论">数论</h3>
-<h4 id="线性筛法求素数">线性筛法求素数</h4>
-<pre><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
+</code></pre><h3 id="数论">数论</h3><h4 id="线性筛法求素数">线性筛法求素数</h4><pre><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
 bool st[N];         // st[x]存储x是否被筛掉
 
 void get_primes(int n)
@@ -1052,19 +778,11 @@ void get_primes(int n)
         &#125;
     &#125;
 &#125;
-</code></pre>
-<h4 id="约数个数和约数之和">约数个数和约数之和</h4>
-<p>如果 N = p1^c1 <em>p2^c2</em> … <em>pk^ck<br>
-约数个数： (c1 + 1)</em> (c2 + 1) <em>…</em> (ck + 1)<br>
-约数之和： (p1^0 + p1^1 + … + p1^c1) <em>…</em> (pk^0 + pk^1 + … + pk^ck)</p>
-<h4 id="欧几里得算法">欧几里得算法</h4>
-<pre><code class="language-cpp">int gcd(int a, int b)
+</code></pre><h4 id="约数个数和约数之和">约数个数和约数之和</h4><p>如果 N = p1^c1 <em>p2^c2</em> … <em>pk^ck<br>约数个数： (c1 + 1)</em> (c2 + 1) <em>…</em> (ck + 1)<br>约数之和： (p1^0 + p1^1 + … + p1^c1) <em>…</em> (pk^0 + pk^1 + … + pk^ck)</p><h4 id="欧几里得算法">欧几里得算法</h4><pre><code class="language-cpp">int gcd(int a, int b)
 &#123;
     return b ? gcd(b, a % b) : a;
 &#125;
-</code></pre>
-<h4 id="扩展欧几里得算法">扩展欧几里得算法</h4>
-<pre><code class="language-cpp">// 求x, y，使得ax + by = gcd(a, b)
+</code></pre><h4 id="扩展欧几里得算法">扩展欧几里得算法</h4><pre><code class="language-cpp">// 求x, y，使得ax + by = gcd(a, b)
 int exgcd(int a, int b, int &amp;x, int &amp;y)
 &#123;
     if (!b)
@@ -1076,9 +794,7 @@ int exgcd(int a, int b, int &amp;x, int &amp;y)
     y -= (a/b) * x;
     return d;
 &#125;
-</code></pre>
-<h4 id="求欧拉函数">求欧拉函数</h4>
-<pre><code class="language-cpp">int phi(int x)
+</code></pre><h4 id="求欧拉函数">求欧拉函数</h4><pre><code class="language-cpp">int phi(int x)
 &#123;
     int res = x;
     for (int i = 2; i &lt;= x / i; i ++ )
@@ -1091,9 +807,7 @@ int exgcd(int a, int b, int &amp;x, int &amp;y)
 
     return res;
 &#125;
-</code></pre>
-<h4 id="筛法求欧拉函数">筛法求欧拉函数</h4>
-<pre><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
+</code></pre><h4 id="筛法求欧拉函数">筛法求欧拉函数</h4><pre><code class="language-cpp">int primes[N], cnt;     // primes[]存储所有素数
 int euler[N];           // 存储每个数的欧拉函数
 bool st[N];         // st[x]存储x是否被筛掉
 
@@ -1120,9 +834,7 @@ void get_eulers(int n)
         &#125;
     &#125;
 &#125;
-</code></pre>
-<h4 id="高斯消元">高斯消元</h4>
-<pre><code class="language-cpp">// a[N][N]是增广矩阵
+</code></pre><h4 id="高斯消元">高斯消元</h4><pre><code class="language-cpp">// a[N][N]是增广矩阵
 int gauss()
 &#123;
     int c, r;
@@ -1159,18 +871,12 @@ int gauss()
 
     return 0; // 有唯一解
 &#125;
-</code></pre>
-<h4 id="递推法求组合数">递推法求组合数</h4>
-<pre><code class="language-cpp">// c[a][b] 表示从a个苹果中选b个的方案数
+</code></pre><h4 id="递推法求组合数">递推法求组合数</h4><pre><code class="language-cpp">// c[a][b] 表示从a个苹果中选b个的方案数
 for (int i = 0; i &lt; N; i ++ )
     for (int j = 0; j &lt;= i; j ++ )
         if (!j) c[i][j] = 1;
         else c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
-</code></pre>
-<h4 id="通过预处理逆元的方式求组合数">通过预处理逆元的方式求组合数</h4>
-<p>首先预处理出所有阶乘取模的余数fact[N]，以及所有阶乘取模的逆元infact[N]<br>
-如果取模的数是质数，可以用费马小定理求逆元</p>
-<pre><code class="language-cpp">int qmi(int a, int k, int p)    // 快速幂模板
+</code></pre><h4 id="通过预处理逆元的方式求组合数">通过预处理逆元的方式求组合数</h4><p>首先预处理出所有阶乘取模的余数fact[N]，以及所有阶乘取模的逆元infact[N]<br>如果取模的数是质数，可以用费马小定理求逆元</p><pre><code class="language-cpp">int qmi(int a, int k, int p)    // 快速幂模板
 &#123;
     int res = 1;
     while (k)
@@ -1189,11 +895,7 @@ for (int i = 1; i &lt; N; i ++ )
     fact[i] = (ll)fact[i - 1] * i % MOD;
     infact[i] = (ll)infact[i - 1] * qmi(i, MOD - 2, MOD) % MOD; //递推求逆元更快
 &#125;
-</code></pre>
-<h4 id="Lucas定理">Lucas定理</h4>
-<p>若p是质数，则对于任意整数 1 &lt;= m &lt;= n，有：<br>
-C(n, m) = C(n % p, m % p) * C(n / p, m / p) (MOD p)</p>
-<pre><code class="language-cpp">int qmi(int a, int k, int p)  // 快速幂模板
+</code></pre><h4 id="Lucas定理">Lucas定理</h4><p>若p是质数，则对于任意整数 1 &lt;= m &lt;= n，有：<br>C(n, m) = C(n % p, m % p) * C(n / p, m / p) (MOD p)</p><pre><code class="language-cpp">int qmi(int a, int k, int p)  // 快速幂模板
 &#123;
     int res = 1 % p;
     while (k)
@@ -1224,15 +926,7 @@ int lucas(ll a, ll b, int p)
     if (a &lt; p &amp;&amp; b &lt; p) return C(a, b, p);
     return (ll)C(a % p, b % p, p) * lucas(a / p, b / p, p) % p;
 &#125;
-</code></pre>
-<h4 id="分解质因数法求组合数">分解质因数法求组合数</h4>
-<p>当我们需要求出组合数的真实值，而非对某个数的余数时，分解质因数的方式比较好用：</p>
-<ol>
-<li>筛法求出范围内的所有质数</li>
-<li>通过 C(a, b) = a! / b! / (a - b)! 这个公式求出每个质因子的次数。 n! 中p的次数是 n / p + n / p^2 + n / p^3 + …</li>
-<li>用高精度乘法将所有质因子相乘</li>
-</ol>
-<pre><code class="language-cpp">int primes[N], cnt;     // 存储所有质数
+</code></pre><h4 id="分解质因数法求组合数">分解质因数法求组合数</h4><p>当我们需要求出组合数的真实值，而非对某个数的余数时，分解质因数的方式比较好用：</p><ol><li>筛法求出范围内的所有质数</li><li>通过 C(a, b) = a! / b! / (a - b)! 这个公式求出每个质因子的次数。 n! 中p的次数是 n / p + n / p^2 + n / p^3 + …</li><li>用高精度乘法将所有质因子相乘</li></ol><pre><code class="language-cpp">int primes[N], cnt;     // 存储所有质数
 int sum[N];     // 存储每个质数的次数
 bool st[N];     // 存储每个数是否已被筛掉
 
@@ -1294,35 +988,7 @@ res.push_back(1);
 for (int i = 0; i &lt; cnt; i ++ )     // 用高精度乘法将所有质因子相乘
     for (int j = 0; j &lt; sum[i]; j ++ )
         res = mul(res, primes[i]);
-</code></pre>
-<h4 id="卡特兰数-——-满足条件的01序列">卡特兰数 —— 满足条件的01序列</h4>
-<p>给定n个0和n个1，它们按照某种顺序排成长度为2n的序列，满足任意前缀中0的个数都不少于1的个数的序列的数量为： Cat(n) = C(2n, n) / (n + 1)</p>
-<h3 id="博弈论">博弈论</h3>
-<h4 id="NIM游戏">NIM游戏</h4>
-<p>定理： NIM博弈先手必胜，当且仅当 A1 ^ A2 ^ … ^ An != 0</p>
-<h4 id="公平组合游戏ICG">公平组合游戏ICG</h4>
-<p>若一个游戏满足：<br>
-由两名玩家交替行动；<br>
-在游戏进程的任意时刻，可以执行的合法行动与轮到哪名玩家无关；<br>
-不能行动的玩家判负；<br>
-则称该游戏为一个公平组合游戏。<br>
-NIM博弈属于公平组合游戏，但城建的棋类游戏，比如围棋，就不是公平组合游戏。因为围棋交战双方分别只能落黑子和白子，胜负判定也比较复杂，不满足条件2和条件3。</p>
-<h4 id="有向图游戏">有向图游戏</h4>
-<p>给定一个有向无环图，图中有一个唯一的起点，在起点上放有一枚棋子。两名玩家交替地把这枚棋子沿有向边进行移动，每次可以移动一步，无法移动者判负。该游戏被称为有向图游戏。<br>
-任何一个公平组合游戏都可以转化为有向图游戏。具体方法是，把每个局面看成图中的一个节点，并且从每个局面向沿着合法行动能够到达的下一个局面连有向边。</p>
-<h5 id="有向图游戏的和-——-模板题-AcWing-893-集合-Nim游戏">有向图游戏的和 —— 模板题 AcWing 893. 集合-Nim游戏</h5>
-<p>设G1, G2, …, Gm 是m个有向图游戏。定义有向图游戏G，它的行动规则是任选某个有向图游戏Gi，并在Gi上行动一步。G被称为有向图游戏G1, G2, …, Gm的和。<br>
-有向图游戏的和的SG函数值等于它包含的各个子游戏SG函数值的异或和，即：<br>
-SG(G) = SG(G1) ^ SG(G2) ^ … ^ SG(Gm)</p>
-<h5 id="定理">定理</h5>
-<p>有向图游戏的某个局面必胜，当且仅当该局面对应节点的SG函数值大于0。<br>
-有向图游戏的某个局面必败，当且仅当该局面对应节点的SG函数值等于0。</p>
-<h3 id="数据结构">数据结构</h3>
-<h4 id="并查集">并查集</h4>
-<ul>
-<li>维护size的并查集</li>
-</ul>
-<pre><code class="language-cpp">int p[N], size[N];
+</code></pre><h4 id="卡特兰数-——-满足条件的01序列">卡特兰数 —— 满足条件的01序列</h4><p>给定n个0和n个1，它们按照某种顺序排成长度为2n的序列，满足任意前缀中0的个数都不少于1的个数的序列的数量为： Cat(n) = C(2n, n) / (n + 1)</p><h3 id="博弈论">博弈论</h3><h4 id="NIM游戏">NIM游戏</h4><p>定理： NIM博弈先手必胜，当且仅当 A1 ^ A2 ^ … ^ An != 0</p><h4 id="公平组合游戏ICG">公平组合游戏ICG</h4><p>若一个游戏满足：<br>由两名玩家交替行动；<br>在游戏进程的任意时刻，可以执行的合法行动与轮到哪名玩家无关；<br>不能行动的玩家判负；<br>则称该游戏为一个公平组合游戏。<br>NIM博弈属于公平组合游戏，但城建的棋类游戏，比如围棋，就不是公平组合游戏。因为围棋交战双方分别只能落黑子和白子，胜负判定也比较复杂，不满足条件2和条件3。</p><h4 id="有向图游戏">有向图游戏</h4><p>给定一个有向无环图，图中有一个唯一的起点，在起点上放有一枚棋子。两名玩家交替地把这枚棋子沿有向边进行移动，每次可以移动一步，无法移动者判负。该游戏被称为有向图游戏。<br>任何一个公平组合游戏都可以转化为有向图游戏。具体方法是，把每个局面看成图中的一个节点，并且从每个局面向沿着合法行动能够到达的下一个局面连有向边。</p><h5 id="有向图游戏的和-——-模板题-AcWing-893-集合-Nim游戏">有向图游戏的和 —— 模板题 AcWing 893. 集合-Nim游戏</h5><p>设G1, G2, …, Gm 是m个有向图游戏。定义有向图游戏G，它的行动规则是任选某个有向图游戏Gi，并在Gi上行动一步。G被称为有向图游戏G1, G2, …, Gm的和。<br>有向图游戏的和的SG函数值等于它包含的各个子游戏SG函数值的异或和，即：<br>SG(G) = SG(G1) ^ SG(G2) ^ … ^ SG(Gm)</p><h5 id="定理">定理</h5><p>有向图游戏的某个局面必胜，当且仅当该局面对应节点的SG函数值大于0。<br>有向图游戏的某个局面必败，当且仅当该局面对应节点的SG函数值等于0。</p><h3 id="数据结构">数据结构</h3><h4 id="并查集">并查集</h4><ul><li>维护size的并查集</li></ul><pre><code class="language-cpp">int p[N], size[N];
 //p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量
 
 int find(int x)
@@ -1339,11 +1005,7 @@ for (int i = 1; i &lt;= n; i ++ )
 
 size[find(b)] += size[find(a)];
 p[find(a)] = find(b);
-</code></pre>
-<ul>
-<li>维护到祖宗节点距离的并查集</li>
-</ul>
-<pre><code class="language-cpp">int p[N], d[N];
+</code></pre><ul><li>维护到祖宗节点距离的并查集</li></ul><pre><code class="language-cpp">int p[N], d[N];
 //p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离
 
 int find(int x)
@@ -1365,10 +1027,7 @@ for (int i = 1; i &lt;= n; i ++ )
 
 p[find(a)] = find(b);
 d[find(a)] = distance; // 根据具体问题，初始化find(a)的偏移量
-</code></pre>
-<h4 id="ST表">ST表</h4>
-<p>M取ceil(log(2))</p>
-<pre><code class="language-cpp">int n, m;
+</code></pre><h4 id="ST表">ST表</h4><p>M取ceil(log(2))</p><pre><code class="language-cpp">int n, m;
 int w[N];
 int f[N][M];
 
@@ -1387,9 +1046,7 @@ int query(int l, int r)
 
     return max(f[l][k], f[r - (1 &lt;&lt; k) + 1][k]);
 &#125;
-</code></pre>
-<h4 id="树状数组——注意下标从1开始">树状数组——注意下标从1开始</h4>
-<pre><code class="language-cpp">int n;
+</code></pre><h4 id="树状数组——注意下标从1开始">树状数组——注意下标从1开始</h4><pre><code class="language-cpp">int n;
 int a[N];
 
 int tr[N];
@@ -1420,10 +1077,7 @@ void init()
         tr[i] = pre[i] - pre[i - lowbit(i)];
     &#125;
 &#125;
-</code></pre>
-<h4 id="线段树">线段树</h4>
-<h5 id="区间改区间查">区间改区间查</h5>
-<pre><code class="language-cpp">int n, m;
+</code></pre><h4 id="线段树">线段树</h4><h5 id="区间改区间查">区间改区间查</h5><pre><code class="language-cpp">int n, m;
 int w[N];
 struct Node
 &#123;
@@ -1492,9 +1146,7 @@ int main()
 &#123;
     build(1, 1, n);
 &#125;
-</code></pre>
-<h5 id="单点查区间改">单点查区间改</h5>
-<pre><code class="language-cpp">int a[N];
+</code></pre><h5 id="单点查区间改">单点查区间改</h5><pre><code class="language-cpp">int a[N];
 struct Node
 &#123;
     int l, r;
@@ -1549,9 +1201,7 @@ int main()
 &#123;
     build(1, 1, n);
 &#125;
-</code></pre>
-<h4 id="主席树——第k小">主席树——第k小</h4>
-<pre><code class="language-cpp">int n, m;
+</code></pre><h4 id="主席树——第k小">主席树——第k小</h4><pre><code class="language-cpp">int n, m;
 int a[N];
 vector&lt;int&gt; nums;
 
@@ -1628,9 +1278,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<h4 id="Treap树">Treap树</h4>
-<pre><code class="language-cpp">const int INF = 1e8;
+</code></pre><h4 id="Treap树">Treap树</h4><pre><code class="language-cpp">const int INF = 1e8;
 
 int n;
 struct Node
@@ -1771,9 +1419,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<h4 id="LCA">LCA</h4>
-<pre><code class="language-cpp">int n, m;
+</code></pre><h4 id="LCA">LCA</h4><pre><code class="language-cpp">int n, m;
 int h[N], e[M], ne[M], idx;
 int depth[N], fa[N][16];
 int q[N];
@@ -1825,11 +1471,7 @@ int lca(int a, int b)
 
 memset(h, -1, sizeof h);
 bfs(root);
-</code></pre>
-<h4 id="splay">splay</h4>
-<h5 id="维护区间翻转">维护区间翻转</h5>
-<p>编号从1开始</p>
-<pre><code class="language-cpp">#include &lt;cstdio&gt;
+</code></pre><h4 id="splay">splay</h4><h5 id="维护区间翻转">维护区间翻转</h5><p>编号从1开始</p><pre><code class="language-cpp">#include &lt;cstdio&gt;
 #include &lt;cstring&gt;
 #include &lt;iostream&gt;
 #include &lt;algorithm&gt;
@@ -1932,10 +1574,7 @@ for (int i = 0; i &lt;= n + 1; i ++ ) insert(i);
 flip(l,r);
 //输出结果
 output(root);
-</code></pre>
-<h3 id="基本数据结构">基本数据结构</h3>
-<h4 id="单链表">单链表</h4>
-<pre><code class="language-cpp">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
+</code></pre><h3 id="基本数据结构">基本数据结构</h3><h4 id="单链表">单链表</h4><pre><code class="language-cpp">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
 int head, e[N], ne[N], idx;
 
 // 初始化
@@ -1956,9 +1595,7 @@ void remove()
 &#123;
     head = ne[head];
 &#125;
-</code></pre>
-<h4 id="双链表">双链表</h4>
-<pre><code class="language-cpp">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
+</code></pre><h4 id="双链表">双链表</h4><pre><code class="language-cpp">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
 int e[N], l[N], r[N], idx;
 
 // 初始化
@@ -1983,9 +1620,7 @@ void remove(int a)
     l[r[a]] = l[a];
     r[l[a]] = r[a];
 &#125;
-</code></pre>
-<h4 id="普通队列">普通队列</h4>
-<pre><code class="language-cpp">// hh 表示队头，tt表示队尾
+</code></pre><h4 id="普通队列">普通队列</h4><pre><code class="language-cpp">// hh 表示队头，tt表示队尾
 int q[N], hh = 0, tt = -1;
 
 // 向队尾插入一个数
@@ -2002,9 +1637,7 @@ if (hh &lt;= tt)
 &#123;
 
 &#125;
-</code></pre>
-<h4 id="循环队列">循环队列</h4>
-<pre><code class="language-cpp">// hh 表示队头，tt表示队尾的后一个位置
+</code></pre><h4 id="循环队列">循环队列</h4><pre><code class="language-cpp">// hh 表示队头，tt表示队尾的后一个位置
 int q[N], hh = 0, tt = 0;
 
 // 向队尾插入一个数
@@ -2023,9 +1656,7 @@ if (hh != tt)
 &#123;
 
 &#125;
-</code></pre>
-<h4 id="堆">堆</h4>
-<pre><code class="language-cpp">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
+</code></pre><h4 id="堆">堆</h4><pre><code class="language-cpp">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
 // ph[k]存储第k个插入的点在堆中的位置
 // hp[k]存储堆中下标是k的点是第几个插入的
 int h[N], ph[N], hp[N], size;
@@ -2061,10 +1692,7 @@ void up(int u)
 
 // O(n)建堆
 for (int i = n / 2; i; i -- ) down(i);
-</code></pre>
-<h4 id="一般哈希">一般哈希</h4>
-<h5 id="拉链法">拉链法</h5>
-<pre><code class="language-cpp">int h[N], e[N], ne[N], idx;
+</code></pre><h4 id="一般哈希">一般哈希</h4><h5 id="拉链法">拉链法</h5><pre><code class="language-cpp">int h[N], e[N], ne[N], idx;
 
 // 向哈希表中插入一个数
 void insert(int x)
@@ -2085,9 +1713,7 @@ bool find(int x)
 
     return false;
 &#125;
-</code></pre>
-<h5 id="开放寻址法">开放寻址法</h5>
-<pre><code class="language-cpp">int h[N];
+</code></pre><h5 id="开放寻址法">开放寻址法</h5><pre><code class="language-cpp">int h[N];
 
 // 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置
 int find(int x)
@@ -2100,12 +1726,7 @@ int find(int x)
     &#125;
     return t;
 &#125;
-</code></pre>
-<h3 id="高精度">高精度</h3>
-<ul>
-<li>高精度加法</li>
-</ul>
-<pre><code class="language-cpp">// C = A + B, A &gt;= 0, B &gt;= 0
+</code></pre><h3 id="高精度">高精度</h3><ul><li>高精度加法</li></ul><pre><code class="language-cpp">// C = A + B, A &gt;= 0, B &gt;= 0
 vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
 &#123;
     if (A.size() &lt; B.size()) return add(B, A);
@@ -2123,11 +1744,7 @@ vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
     if (t) C.push_back(t);
     return C;
 &#125;
-</code></pre>
-<ul>
-<li>高精度减法</li>
-</ul>
-<pre><code class="language-cpp">// C = A - B, 满足A &gt;= B, A &gt;= 0, B &gt;= 0
+</code></pre><ul><li>高精度减法</li></ul><pre><code class="language-cpp">// C = A - B, 满足A &gt;= B, A &gt;= 0, B &gt;= 0
 vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
 &#123;
     vector&lt;int&gt; C;
@@ -2143,11 +1760,7 @@ vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
     while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
     return C;
 &#125;
-</code></pre>
-<ul>
-<li>高精度乘低精度</li>
-</ul>
-<pre><code class="language-cpp">// C = A * b, A &gt;= 0, b &gt;= 0
+</code></pre><ul><li>高精度乘低精度</li></ul><pre><code class="language-cpp">// C = A * b, A &gt;= 0, b &gt;= 0
 vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
 &#123;
     vector&lt;int&gt; C;
@@ -2164,14 +1777,7 @@ vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
 
     return C;
 &#125;
-</code></pre>
-<ul>
-<li>FFT多项式乘法</li>
-</ul>
-<p>保证输入中的系数大于等于 0 且小于等于 9</p>
-<p>求F(x) 和 G(x) 的卷积</p>
-<p>从低到高表示系数。</p>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
+</code></pre><ul><li>FFT多项式乘法</li></ul><p>保证输入中的系数大于等于 0 且小于等于 9</p><p>求F(x) 和 G(x) 的卷积</p><p>从低到高表示系数。</p><pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 #include &lt;cmath&gt;
@@ -2237,11 +1843,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<ul>
-<li>高精度乘高精度</li>
-</ul>
-<pre><code class="language-cpp">    #include &lt;iostream&gt;
+</code></pre><ul><li>高精度乘高精度</li></ul><pre><code class="language-cpp">    #include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 #include &lt;cmath&gt;
@@ -2318,11 +1920,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<ul>
-<li>高精度除以低精度</li>
-</ul>
-<pre><code class="language-cpp">// A / b = C ... r, A &gt;= 0, b &gt; 0
+</code></pre><ul><li>高精度除以低精度</li></ul><pre><code class="language-cpp">// A / b = C ... r, A &gt;= 0, b &gt; 0
 vector&lt;int&gt; div(vector&lt;int&gt; &amp;A, int b, int &amp;r)
 &#123;
     vector&lt;int&gt; C;
@@ -2337,11 +1935,7 @@ vector&lt;int&gt; div(vector&lt;int&gt; &amp;A, int b, int &amp;r)
     while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
     return C;
 &#125;
-</code></pre>
-<h3 id="随机化算法">随机化算法</h3>
-<h4 id="模拟退火">模拟退火</h4>
-<p>求n个点的欧氏距离中心点</p>
-<pre><code>#include &lt;iostream&gt;
+</code></pre><h3 id="随机化算法">随机化算法</h3><h4 id="模拟退火">模拟退火</h4><p>求n个点的欧氏距离中心点</p><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 #include &lt;cmath&gt;
@@ -2401,10 +1995,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<h4 id="爬山法">爬山法</h4>
-<p>已知n+1球面上点求n维球球心</p>
-<pre><code>#include &lt;iostream&gt;
+</code></pre><h4 id="爬山法">爬山法</h4><p>已知n+1球面上点求n维球球心</p><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 #include &lt;cmath&gt;
@@ -2453,10 +2044,7 @@ int main()
 
     return 0;
 &#125;
-</code></pre>
-<h3 id="库">库</h3>
-<h4 id="bitset">bitset</h4>
-<pre><code class="language-cpp">bitset&lt;10000&gt; s;
+</code></pre><h3 id="库">库</h3><h4 id="bitset">bitset</h4><pre><code class="language-cpp">bitset&lt;10000&gt; s;
 
 count()  返回有多少个1
 any()  判断是否至少有一个1
@@ -2466,276 +2054,25 @@ set(k, v)  将第k位变成v
 reset()  把所有位变成0
 flip()  等价于~
 flip(k) 把第k位取反
-</code></pre>
-<h4 id="rope">rope</h4>
-<h5 id="导入">导入</h5>
-<p>STL 中的 <code>rope</code> 采用可持久化平衡树实现，可完成随机访问和插入、删除元素的操作。。</p>
-<p>可以使用如下方法来引入：</p>
-<pre><code class="language-cpp">#include &lt;ext/rope&gt;
+</code></pre><h4 id="rope">rope</h4><h5 id="导入">导入</h5><p>STL 中的 <code>rope</code> 采用可持久化平衡树实现，可完成随机访问和插入、删除元素的操作。。</p><p>可以使用如下方法来引入：</p><pre><code class="language-cpp">#include &lt;ext/rope&gt;
 using namespace __gnu_cxx;
-</code></pre>
-<h5 id="基本操作">基本操作</h5>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">操作</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>rope &lt;int &gt; a</code></td>
-<td style="text-align:center">初始化 <code>rope</code>（与 <code>vector</code> 等容器很相似）</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>a.push_back(x)</code></td>
-<td style="text-align:center">在 <code>a</code> 的末尾添加元素 <code>x</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>a.insert(pos, x)</code></td>
-<td style="text-align:center">在 <code>a</code> 的 <code>pos</code> 个位置添加元素 <code>x</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>a.erase(pos, x)</code></td>
-<td style="text-align:center">在 <code>a</code> 的 <code>pos</code> 个位置删除 <code>x</code> 个元素</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>a.at(x)</code> 或 <code>a[x]</code></td>
-<td style="text-align:center">访问 <code>a</code> 的第 <code>x</code> 个元素</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>a.length()</code> 或 <code>a.size()</code></td>
-<td style="text-align:center">获取 <code>a</code> 的大小</td>
-</tr>
-</tbody>
-</table>
-<h4 id="priority-queue">priority_queue</h4>
-<pre><code class="language-cpp">#include &lt;ext/pb_ds/priority_queue.hpp&gt;
+</code></pre><h5 id="基本操作">基本操作</h5><table><thead><tr><th style="text-align:center">操作</th><th style="text-align:center">作用</th></tr></thead><tbody><tr><td style="text-align:center"><code>rope &lt;int &gt; a</code></td><td style="text-align:center">初始化 <code>rope</code>（与 <code>vector</code> 等容器很相似）</td></tr><tr><td style="text-align:center"><code>a.push_back(x)</code></td><td style="text-align:center">在 <code>a</code> 的末尾添加元素 <code>x</code></td></tr><tr><td style="text-align:center"><code>a.insert(pos, x)</code></td><td style="text-align:center">在 <code>a</code> 的 <code>pos</code> 个位置添加元素 <code>x</code></td></tr><tr><td style="text-align:center"><code>a.erase(pos, x)</code></td><td style="text-align:center">在 <code>a</code> 的 <code>pos</code> 个位置删除 <code>x</code> 个元素</td></tr><tr><td style="text-align:center"><code>a.at(x)</code> 或 <code>a[x]</code></td><td style="text-align:center">访问 <code>a</code> 的第 <code>x</code> 个元素</td></tr><tr><td style="text-align:center"><code>a.length()</code> 或 <code>a.size()</code></td><td style="text-align:center">获取 <code>a</code> 的大小</td></tr></tbody></table><h4 id="priority-queue">priority_queue</h4><pre><code class="language-cpp">#include &lt;ext/pb_ds/priority_queue.hpp&gt;
 using namespace __gnu_pbds;
 __gnu_pbds ::priority_queue&lt;T, Compare, Tag, Allocator&gt;
-</code></pre>
-<h5 id="模板形参">模板形参</h5>
-<ul>
-<li><code>T</code>: 储存的元素类型</li>
-<li><code>Compare</code>: 提供严格的弱序比较类型</li>
-<li><code>Tag</code>: 是 <code>__gnu_pbds</code> 提供的不同的五种堆，Tag 参数默认是 <code>pairing_heap_tag</code> 五种分别是：
-<ul>
-<li><code>pairing_heap_tag</code>：配对堆<br>
-官方文档认为在非原生元素（如自定义结构体/<code>std :: string</code>/<code>pair</code>）中，配对堆表现最好</li>
-<li><code>binary_heap_tag</code>：二叉堆<br>
-官方文档认为在原生元素中二叉堆表现最好，不过笔者测试的表现并没有那么好</li>
-<li><code>binomial_heap_tag</code>：二项堆<br>
-二项堆在合并操作的表现要优于二叉堆，但是其取堆顶元素操作的复杂度比二叉堆高</li>
-<li><code>rc_binomial_heap_tag</code>：冗余计数二项堆</li>
-<li><code>thin_heap_tag</code>：除了合并的复杂度都和 Fibonacci 堆一样的一个 tag</li>
-</ul>
-</li>
-</ul>
-<p>经作者本机 Core i5 @3.1 GHz On macOS 测试堆的基础操作，结合 GNU 官方的复杂度测试，Dijkstra 测试，都表明：<br>
-至少对于 OIer 来讲，除了配对堆的其他四个 tag 都是鸡肋，要么没用，要么常数大到不如 <code>std</code> 的，且有可能造成 MLE，故这里 <strong>只推荐用默认的配对堆</strong> 。同样，配对堆也优于 <code>algorithm</code> 库中的 <code>make_heap()</code>。</p>
-<h5 id="构造方式">构造方式</h5>
-<p>要注明命名空间因为和 <code>std</code> 的类名称重复。</p>
-<pre><code class="language-cpp">__gnu_pbds ::priority_queue&lt;int&gt; __gnu_pbds::priority_queue&lt;int, greater&lt;int&gt; &gt;
+</code></pre><h5 id="模板形参">模板形参</h5><ul><li><code>T</code>: 储存的元素类型</li><li><code>Compare</code>: 提供严格的弱序比较类型</li><li><code>Tag</code>: 是 <code>__gnu_pbds</code> 提供的不同的五种堆，Tag 参数默认是 <code>pairing_heap_tag</code> 五种分别是：<ul><li><code>pairing_heap_tag</code>：配对堆<br>官方文档认为在非原生元素（如自定义结构体/<code>std :: string</code>/<code>pair</code>）中，配对堆表现最好</li><li><code>binary_heap_tag</code>：二叉堆<br>官方文档认为在原生元素中二叉堆表现最好，不过笔者测试的表现并没有那么好</li><li><code>binomial_heap_tag</code>：二项堆<br>二项堆在合并操作的表现要优于二叉堆，但是其取堆顶元素操作的复杂度比二叉堆高</li><li><code>rc_binomial_heap_tag</code>：冗余计数二项堆</li><li><code>thin_heap_tag</code>：除了合并的复杂度都和 Fibonacci 堆一样的一个 tag</li></ul></li></ul><p>经作者本机 Core i5 @3.1 GHz On macOS 测试堆的基础操作，结合 GNU 官方的复杂度测试，Dijkstra 测试，都表明：<br>至少对于 OIer 来讲，除了配对堆的其他四个 tag 都是鸡肋，要么没用，要么常数大到不如 <code>std</code> 的，且有可能造成 MLE，故这里 <strong>只推荐用默认的配对堆</strong> 。同样，配对堆也优于 <code>algorithm</code> 库中的 <code>make_heap()</code>。</p><h5 id="构造方式">构造方式</h5><p>要注明命名空间因为和 <code>std</code> 的类名称重复。</p><pre><code class="language-cpp">__gnu_pbds ::priority_queue&lt;int&gt; __gnu_pbds::priority_queue&lt;int, greater&lt;int&gt; &gt;
 __gnu_pbds ::priority_queue&lt;int, greater&lt;int&gt;, pairing_heap_tag&gt;
 __gnu_pbds ::priority_queue&lt;int&gt;::point_iterator id; // 点类型迭代器
 // 在 MODify 和 push 的时候都会返回一个 point_iterator
 id = q.push(1);
-</code></pre>
-<h5 id="成员函数">成员函数</h5>
-<ul>
-<li><code>push()</code>: 向堆中压入一个元素，返回该元素位置的迭代器。</li>
-<li><code>pop()</code>: 将堆顶元素弹出。</li>
-<li><code>top()</code>: 返回堆顶元素。</li>
-<li><code>size()</code> 返回元素个数。</li>
-<li><code>empty()</code> 返回是否非空。</li>
-<li><code>MODify(point_iterator, const key)</code>: 把迭代器位置的 <code>key</code> 修改为传入的 <code>key</code>，并对底层储存结构进行排序。</li>
-<li><code>erase(point_iterator)</code>: 把迭代器位置的键值从堆中擦除。</li>
-<li><code>join(__gnu_pbds :: priority_queue &amp;other)</code>: 把 <code>other</code> 合并到 <code>*this</code> 并把 <code>other</code> 清空。</li>
-</ul>
-<p>使用的 tag 决定了每个操作的时间复杂度：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>push</th>
-<th style="text-align:left">pop</th>
-<th>MODify</th>
-<th>erase</th>
-<th>Join</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pairing_heap_tag</code></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-<td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-<tr>
-<td><code>binary_heap_tag</code></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-<tr>
-<td><code>binomial_heap_tag</code></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-</tr>
-<tr>
-<td><code>rc_binomial_heap_tag</code></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-<td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-</tr>
-<tr>
-<td><code>thin_heap_tag</code></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-<td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td>
-<td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="tree">tree</h4>
-<pre><code class="language-cpp">#include &lt;ext/pb_ds/assoc_container.hpp&gt;  // 因为tree定义在这里 所以需要包含这个头文件
+</code></pre><h5 id="成员函数">成员函数</h5><ul><li><code>push()</code>: 向堆中压入一个元素，返回该元素位置的迭代器。</li><li><code>pop()</code>: 将堆顶元素弹出。</li><li><code>top()</code>: 返回堆顶元素。</li><li><code>size()</code> 返回元素个数。</li><li><code>empty()</code> 返回是否非空。</li><li><code>MODify(point_iterator, const key)</code>: 把迭代器位置的 <code>key</code> 修改为传入的 <code>key</code>，并对底层储存结构进行排序。</li><li><code>erase(point_iterator)</code>: 把迭代器位置的键值从堆中擦除。</li><li><code>join(__gnu_pbds :: priority_queue &amp;other)</code>: 把 <code>other</code> 合并到 <code>*this</code> 并把 <code>other</code> 清空。</li></ul><p>使用的 tag 决定了每个操作的时间复杂度：</p><table><thead><tr><th></th><th>push</th><th style="text-align:left">pop</th><th>MODify</th><th>erase</th><th>Join</th></tr></thead><tbody><tr><td><code>pairing_heap_tag</code></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td></tr><tr><td><code>binary_heap_tag</code></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td></tr><tr><td><code>binomial_heap_tag</code></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td></tr><tr><td><code>rc_binomial_heap_tag</code></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td></tr><tr><td><code>thin_heap_tag</code></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td style="text-align:left">最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal" style="margin-right:.02778em">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></td><td>最坏<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 均摊 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(\log(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:.01389em">g</span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Θ</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\Theta(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">Θ</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td></tr></tbody></table><h4 id="tree">tree</h4><pre><code class="language-cpp">#include &lt;ext/pb_ds/assoc_container.hpp&gt;  // 因为tree定义在这里 所以需要包含这个头文件
 #include &lt;ext/pb_ds/tree_policy.hpp&gt;
 using namespace __gnu_pbds;
 __gnu_pbds ::tree&lt;Key, Mapped, Cmp_Fn = std::less&lt;Key&gt;, Tag = rb_tree_tag,
                   Node_Update = null_tree_node_update,
                   Allocator = std::allocator&lt;char&gt; &gt;
-</code></pre>
-<ul>
-<li>
-<p>模板形参</p>
-<ul>
-<li><code>Key</code>: 储存的元素类型，如果想要存储多个相同的 <code>Key</code> 元素，则需要使用类似于 <code>std::pair</code> 和 <code>struct</code> 的方法，并配合使用 <code>lower_bound</code> 和 <code>upper_bound</code> 成员函数进行查找</li>
-<li><code>Mapped</code>: 映射规则（Mapped-Policy）类型，如果要指示关联容器是 <strong>集合</strong>，类似于存储元素在 <code>std::set</code> 中，此处填入 <code>null_type</code>，低版本 <code>g++</code> 此处为 <code>null_mapped_type</code>；如果要指示关联容器是 <strong>带值的集合</strong>，类似于存储元素在 <code>std::map</code> 中，此处填入类似于 <code>std::map&lt;Key, Value&gt;</code> 的 <code>Value</code> 类型</li>
-<li><code>Cmp_Fn</code>: 关键字比较函子，例如 <code>std::less&lt;Key&gt;</code></li>
-<li><code>Tag</code>: 选择使用何种底层数据结构类型，默认是 <code>rb_tree_tag</code>。<code>__gnu_pbds</code> 提供不同的三种平衡树，分别是：
-<ul>
-<li><code>rb_tree_tag</code>：红黑树，一般使用这个，后两者的性能一般不如红黑树</li>
-<li><code>splay_tree_tag</code>：splay 树</li>
-<li><code>ov_tree_tag</code>：有序向量树，只是一个由 <code>vector</code> 实现的有序结构，类似于排序的 <code>vector</code> 来实现平衡树，性能取决于数据想不想卡你</li>
-</ul>
-</li>
-<li><code>Node_Update</code>：用于更新节点的策略，默认使用 <code>null_node_update</code>，若要使用 <code>order_of_key</code> 和 <code>find_by_order</code> 方法，需要使用 <code>tree_order_statistics_node_update</code></li>
-</ul>
-</li>
-<li>
-<p>构造方式</p>
-</li>
-</ul>
-<pre><code class="language-c++">__gnu_pbds::tree&lt;std::pair&lt;int, int&gt;, __gnu_pbds::null_type,
+</code></pre><ul><li><p>模板形参</p><ul><li><code>Key</code>: 储存的元素类型，如果想要存储多个相同的 <code>Key</code> 元素，则需要使用类似于 <code>std::pair</code> 和 <code>struct</code> 的方法，并配合使用 <code>lower_bound</code> 和 <code>upper_bound</code> 成员函数进行查找</li><li><code>Mapped</code>: 映射规则（Mapped-Policy）类型，如果要指示关联容器是 <strong>集合</strong>，类似于存储元素在 <code>std::set</code> 中，此处填入 <code>null_type</code>，低版本 <code>g++</code> 此处为 <code>null_mapped_type</code>；如果要指示关联容器是 <strong>带值的集合</strong>，类似于存储元素在 <code>std::map</code> 中，此处填入类似于 <code>std::map&lt;Key, Value&gt;</code> 的 <code>Value</code> 类型</li><li><code>Cmp_Fn</code>: 关键字比较函子，例如 <code>std::less&lt;Key&gt;</code></li><li><code>Tag</code>: 选择使用何种底层数据结构类型，默认是 <code>rb_tree_tag</code>。<code>__gnu_pbds</code> 提供不同的三种平衡树，分别是：<ul><li><code>rb_tree_tag</code>：红黑树，一般使用这个，后两者的性能一般不如红黑树</li><li><code>splay_tree_tag</code>：splay 树</li><li><code>ov_tree_tag</code>：有序向量树，只是一个由 <code>vector</code> 实现的有序结构，类似于排序的 <code>vector</code> 来实现平衡树，性能取决于数据想不想卡你</li></ul></li><li><code>Node_Update</code>：用于更新节点的策略，默认使用 <code>null_node_update</code>，若要使用 <code>order_of_key</code> 和 <code>find_by_order</code> 方法，需要使用 <code>tree_order_statistics_node_update</code></li></ul></li><li><p>构造方式</p></li></ul><pre><code class="language-c++">__gnu_pbds::tree&lt;std::pair&lt;int, int&gt;, __gnu_pbds::null_type,
                  std::less&lt;std::pair&lt;int, int&gt; &gt;, __gnu_pbds::rb_tree_tag,
                  __gnu_pbds::tree_order_statistics_node_update&gt;
     trr;
-</code></pre>
-<ul>
-<li>
-<p>成员函数</p>
-<ul>
-<li><code>insert(x)</code>：向树中插入一个元素 x，返回 <code>std::pair&lt;point_iterator, bool&gt;</code>。</li>
-<li><code>erase(x)</code>：从树中删除一个元素/迭代器 x，返回一个 <code>bool</code> 表明是否删除成功。</li>
-<li><code>order_of_key(x)</code>：返回 x 以 <code>Cmp_Fn</code> 比较的排名。</li>
-<li><code>find_by_order(x)</code>：返回 <code>Cmp_Fn</code> 比较的排名所对应元素的迭代器。</li>
-<li><code>lower_bound(x)</code>：以 <code>Cmp_Fn</code> 比较做 <code>lower_bound</code>，返回迭代器。</li>
-<li><code>upper_bound(x)</code>：以 <code>Cmp_Fn</code> 比较做 <code>upper_bound</code>，返回迭代器。</li>
-<li><code>join(x)</code>：将 x 树并入当前树，前提是两棵树的类型一样，x 树被删除。</li>
-<li><code>split(x,b)</code>：以 <code>Cmp_Fn</code> 比较，小于等于 x 的属于当前树，其余的属于 b 树。</li>
-<li><code>empty()</code>：返回是否为空。</li>
-<li><code>size()</code>：返回大小。</li>
-</ul>
-</li>
-</ul>
-<h3 id="Sanitizer">Sanitizer</h3>
-<p>理智保证器。在运行时检查你的程序是否有未定义行为、数组越界、空指针，等等功能。<br>
-这些 sanitizer 绝大多数可以在 GCC 和 Clang 中使用。sanitizer 在 llVM 中更加成熟，因此推荐本地使用 Clang 编译器进行相关除错。</p>
-<h4 id="Address-Sanitizer-fsanitize-address">Address Sanitizer -fsanitize=address</h4>
-<p>GCC 和 Clang 都支持这个 Sanitizer。包括如下检查项：</p>
-<ul>
-<li>越界</li>
-<li>释放后使用 (use-after-free)</li>
-<li>返回后使用 (use-after-return)</li>
-<li>重复释放 (double-free)</li>
-<li>内存泄漏 (memory-leaks)</li>
-<li>离开作用域后使用  (use-after-scope)</li>
-</ul>
-<p>应用这项检查会让你的程序慢 2x 左右。</p>
-<h4 id="Undefined-Behavior-Sanitizer-fsanitize-undefined">Undefined Behavior Sanitizer -fsanitize=undefined</h4>
-<p>Undefined Behavior Sanitizer 用于检查代码中的未定义行为。GCC 和 Clang 都支持这个 Sanitizer。自动检查你的程序有无未定义行为。UBSan 的检查项目包括：</p>
-<ul>
-<li>位运算溢出，例如 32 位整数左移 72 位</li>
-<li>有符号整数溢出</li>
-<li>浮点数转换到整数数据溢出</li>
-</ul>
-<p>UBSan 的检查项可选。</p>
-<h3 id="TODOLIST">TODOLIST</h3>
-<p>//字符串–AC自动机等</p>
-<p>//完全体并查集</p>
-<p>//离线LCA</p>
-<p>//splay</p>
-<p>//网络流</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.sinlin.eu.org">Sinlin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.sinlin.eu.org/posts/1694384414.html">http://www.sinlin.eu.org/posts/1694384414.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.sinlin.eu.org" target="_blank">Sinlin's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/63534.html" title="test"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">test</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinlin</div><div class="author-info__description">ACMer、音乐人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sinlinli"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Sinlin的ACM模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.2.</span> <span class="toc-text">基础算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">二维前缀和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">二维差分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">双指针算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">离散化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">区间合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="toc-number">1.0.2.7.</span> <span class="toc-text">单调栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97"><span class="toc-number">1.0.2.8.</span> <span class="toc-text">单调队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.0.2.9.</span> <span class="toc-text">排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.3.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KMP"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">KMP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Trie%E6%A0%91"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">Trie树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#manacher"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">manacher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.0.3.5.</span> <span class="toc-text">后缀自动机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.0.3.6.</span> <span class="toc-text">最小表示法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">1.0.4.</span> <span class="toc-text">图论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">邻接表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">拓扑排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0dijkstra%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">朴素dijkstra算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88dijkstra"><span class="toc-number">1.0.4.4.</span> <span class="toc-text">堆优化版dijkstra</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bellman-Ford%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E6%9C%89%E8%BE%B9%E6%95%B0%E9%99%90%E5%88%B6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-number">1.0.4.5.</span> <span class="toc-text">Bellman-Ford算法 —— 有边数限制的最短路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spfa-%E7%AE%97%E6%B3%95%EF%BC%88%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E7%9A%84Bellman-Ford%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">1.0.4.6.</span> <span class="toc-text">spfa 算法（队列优化的Bellman-Ford算法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spfa%E5%88%A4%E6%96%AD%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B4%9F%E7%8E%AF"><span class="toc-number">1.0.4.7.</span> <span class="toc-text">spfa判断图中是否存在负环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.8.</span> <span class="toc-text">floyd算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E7%89%88prim%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.9.</span> <span class="toc-text">朴素版prim算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kruskal%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E6%B1%82%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.0.4.10.</span> <span class="toc-text">Kruskal算法 —— 求最小生成树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%93%E8%89%B2%E6%B3%95%E5%88%A4%E5%88%AB%E4%BA%8C%E5%88%86%E5%9B%BE"><span class="toc-number">1.0.4.11.</span> <span class="toc-text">染色法判别二分图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"><span class="toc-number">1.0.4.12.</span> <span class="toc-text">匈牙利算法 —— 二分图的最大匹配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E8%AE%BA"><span class="toc-number">1.0.5.</span> <span class="toc-text">数论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">线性筛法求素数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0%E5%92%8C%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">约数个数和约数之和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.5.3.</span> <span class="toc-text">欧几里得算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.5.4.</span> <span class="toc-text">扩展欧几里得算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.5.5.</span> <span class="toc-text">求欧拉函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%9B%E6%B3%95%E6%B1%82%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.5.6.</span> <span class="toc-text">筛法求欧拉函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83"><span class="toc-number">1.0.5.7.</span> <span class="toc-text">高斯消元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E6%8E%A8%E6%B3%95%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.8.</span> <span class="toc-text">递推法求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%A2%84%E5%A4%84%E7%90%86%E9%80%86%E5%85%83%E7%9A%84%E6%96%B9%E5%BC%8F%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.9.</span> <span class="toc-text">通过预处理逆元的方式求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lucas%E5%AE%9A%E7%90%86"><span class="toc-number">1.0.5.10.</span> <span class="toc-text">Lucas定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0%E6%B3%95%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.11.</span> <span class="toc-text">分解质因数法求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0-%E2%80%94%E2%80%94-%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%8401%E5%BA%8F%E5%88%97"><span class="toc-number">1.0.5.12.</span> <span class="toc-text">卡特兰数 —— 满足条件的01序列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="toc-number">1.0.6.</span> <span class="toc-text">博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NIM%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">NIM游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8FICG"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">公平组合游戏ICG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.3.</span> <span class="toc-text">有向图游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E6%B8%B8%E6%88%8F%E7%9A%84%E5%92%8C-%E2%80%94%E2%80%94-%E6%A8%A1%E6%9D%BF%E9%A2%98-AcWing-893-%E9%9B%86%E5%90%88-Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.3.1.</span> <span class="toc-text">有向图游戏的和 —— 模板题 AcWing 893. 集合-Nim游戏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E7%90%86"><span class="toc-number">1.0.6.3.2.</span> <span class="toc-text">定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.7.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">并查集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ST%E8%A1%A8"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">ST表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E6%B3%A8%E6%84%8F%E4%B8%8B%E6%A0%87%E4%BB%8E1%E5%BC%80%E5%A7%8B"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">树状数组——注意下标从1开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-number">1.0.7.4.</span> <span class="toc-text">线段树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5"><span class="toc-number">1.0.7.4.1.</span> <span class="toc-text">区间改区间查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E6%9F%A5%E5%8C%BA%E9%97%B4%E6%94%B9"><span class="toc-number">1.0.7.4.2.</span> <span class="toc-text">单点查区间改</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%B8%AD%E6%A0%91%E2%80%94%E2%80%94%E7%AC%ACk%E5%B0%8F"><span class="toc-number">1.0.7.5.</span> <span class="toc-text">主席树——第k小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Treap%E6%A0%91"><span class="toc-number">1.0.7.6.</span> <span class="toc-text">Treap树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LCA"><span class="toc-number">1.0.7.7.</span> <span class="toc-text">LCA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splay"><span class="toc-number">1.0.7.8.</span> <span class="toc-text">splay</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E7%BF%BB%E8%BD%AC"><span class="toc-number">1.0.7.8.1.</span> <span class="toc-text">维护区间翻转</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.8.</span> <span class="toc-text">基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">1.0.8.2.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E9%98%9F%E5%88%97"><span class="toc-number">1.0.8.3.</span> <span class="toc-text">普通队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97"><span class="toc-number">1.0.8.4.</span> <span class="toc-text">循环队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">1.0.8.5.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%93%88%E5%B8%8C"><span class="toc-number">1.0.8.6.</span> <span class="toc-text">一般哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8B%89%E9%93%BE%E6%B3%95"><span class="toc-number">1.0.8.6.1.</span> <span class="toc-text">拉链法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%AF%BB%E5%9D%80%E6%B3%95"><span class="toc-number">1.0.8.6.2.</span> <span class="toc-text">开放寻址法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6"><span class="toc-number">1.0.9.</span> <span class="toc-text">高精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.10.</span> <span class="toc-text">随机化算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-number">1.0.10.1.</span> <span class="toc-text">模拟退火</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1%E6%B3%95"><span class="toc-number">1.0.10.2.</span> <span class="toc-text">爬山法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%93"><span class="toc-number">1.0.11.</span> <span class="toc-text">库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bitset"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">bitset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rope"><span class="toc-number">1.0.11.2.</span> <span class="toc-text">rope</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="toc-number">1.0.11.2.1.</span> <span class="toc-text">导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.11.2.2.</span> <span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#priority-queue"><span class="toc-number">1.0.11.3.</span> <span class="toc-text">priority_queue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%BD%A2%E5%8F%82"><span class="toc-number">1.0.11.3.1.</span> <span class="toc-text">模板形参</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.11.3.2.</span> <span class="toc-text">构造方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.11.3.3.</span> <span class="toc-text">成员函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tree"><span class="toc-number">1.0.11.4.</span> <span class="toc-text">tree</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sanitizer"><span class="toc-number">1.0.12.</span> <span class="toc-text">Sanitizer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Address-Sanitizer-fsanitize-address"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">Address Sanitizer -fsanitize&#x3D;address</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Undefined-Behavior-Sanitizer-fsanitize-undefined"><span class="toc-number">1.0.12.2.</span> <span class="toc-text">Undefined Behavior Sanitizer -fsanitize&#x3D;undefined</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODOLIST"><span class="toc-number">1.0.13.</span> <span class="toc-text">TODOLIST</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1694384414.html" title="我的ACM模板">我的ACM模板</a><time datetime="2023-10-30T10:48:11.293Z" title="发表于 2023-10-30 18:48:11">2023-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/63534.html" title="test">test</a><time datetime="2023-10-30T05:12:24.000Z" title="发表于 2023-10-30 13:12:24">2023-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1243066710.html" title="Hello World">Hello World</a><time datetime="2023-10-29T16:07:57.167Z" title="发表于 2023-10-30 00:07:57">2023-10-30</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgb(0,0,0,0)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sinlin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
-  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
-    btf.wrap(item, 'div', { class: 'katex-wrap'})
-  })
-})()</script><script>(()=>{
-  const getGiscusTheme = theme => {
-    return theme === 'dark' ? 'dark' : 'light'
-  }
-
-  const loadGiscus = () => {
-    const config = Object.assign({
-      src: 'https://giscus.app/client.js',
-      'data-repo': 'sinlinli/blog',
-      'data-repo-id': 'R_kgDOKj7edw',
-      'data-category-id': 'DIC_kwDOKj7ed84Caij5',
-      'data-mapping': 'pathname',
-      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
-      'data-reactions-enabled': '1',
-      crossorigin: 'anonymous',
-      async: true
-    },{"data-mapping":"og:title","data-category":"Announcements","data-lang":"zh-CN"})
-
-    const ele = document.createElement('script')
-    for (let key in config) {
-      ele.setAttribute(key, config[key])
-    }
-    document.getElementById('giscus-wrap').appendChild(ele)
-  }
-
-  const changeGiscusTheme = theme => {
-    const sendMessage = message => {
-      const iframe = document.querySelector('iframe.giscus-frame')
-      if (!iframe) return
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
-    }
-
-    sendMessage({
-      setConfig: {
-        theme: getGiscusTheme(theme)
-      }
-    });
-  }
-
-  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
-
-  if ('Giscus' === 'Giscus' || !true) {
-    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
-    else loadGiscus()
-  } else {
-    window.loadOtherComment= loadGiscus
-  }
-})()</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="#pragma GCC optimize(2),#include &lt;bits/stdc++.h&gt;,#define int ll,cin.tie(0)-&gt;sync_with_stdio(false);,#define endl '
-',return 0;,Accpeted" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":1},"log":false});</script></body></html>
+</code></pre><ul><li><p>成员函数</p><ul><li><code>insert(x)</code>：向树中插入一个元素 x，返回 <code>std::pair&lt;point_iterator, bool&gt;</code>。</li><li><code>erase(x)</code>：从树中删除一个元素/迭代器 x，返回一个 <code>bool</code> 表明是否删除成功。</li><li><code>order_of_key(x)</code>：返回 x 以 <code>Cmp_Fn</code> 比较的排名。</li><li><code>find_by_order(x)</code>：返回 <code>Cmp_Fn</code> 比较的排名所对应元素的迭代器。</li><li><code>lower_bound(x)</code>：以 <code>Cmp_Fn</code> 比较做 <code>lower_bound</code>，返回迭代器。</li><li><code>upper_bound(x)</code>：以 <code>Cmp_Fn</code> 比较做 <code>upper_bound</code>，返回迭代器。</li><li><code>join(x)</code>：将 x 树并入当前树，前提是两棵树的类型一样，x 树被删除。</li><li><code>split(x,b)</code>：以 <code>Cmp_Fn</code> 比较，小于等于 x 的属于当前树，其余的属于 b 树。</li><li><code>empty()</code>：返回是否为空。</li><li><code>size()</code>：返回大小。</li></ul></li></ul><h3 id="Sanitizer">Sanitizer</h3><p>理智保证器。在运行时检查你的程序是否有未定义行为、数组越界、空指针，等等功能。<br>这些 sanitizer 绝大多数可以在 GCC 和 Clang 中使用。sanitizer 在 llVM 中更加成熟，因此推荐本地使用 Clang 编译器进行相关除错。</p><h4 id="Address-Sanitizer-fsanitize-address">Address Sanitizer -fsanitize=address</h4><p>GCC 和 Clang 都支持这个 Sanitizer。包括如下检查项：</p><ul><li>越界</li><li>释放后使用 (use-after-free)</li><li>返回后使用 (use-after-return)</li><li>重复释放 (double-free)</li><li>内存泄漏 (memory-leaks)</li><li>离开作用域后使用 (use-after-scope)</li></ul><p>应用这项检查会让你的程序慢 2x 左右。</p><h4 id="Undefined-Behavior-Sanitizer-fsanitize-undefined">Undefined Behavior Sanitizer -fsanitize=undefined</h4><p>Undefined Behavior Sanitizer 用于检查代码中的未定义行为。GCC 和 Clang 都支持这个 Sanitizer。自动检查你的程序有无未定义行为。UBSan 的检查项目包括：</p><ul><li>位运算溢出，例如 32 位整数左移 72 位</li><li>有符号整数溢出</li><li>浮点数转换到整数数据溢出</li></ul><p>UBSan 的检查项可选。</p><h3 id="TODOLIST">TODOLIST</h3><p>//字符串–AC自动机等</p><p>//完全体并查集</p><p>//离线LCA</p><p>//splay</p><p>//网络流</p></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://www.sinlin.eu.org">Sinlin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://www.sinlin.eu.org/posts/1694384414.html">http://www.sinlin.eu.org/posts/1694384414.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.sinlin.eu.org" target="_blank">Sinlin's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/63534.html" title="test"><div class="cover" style="background:var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">test</div></div></a></div></nav><hr class="custom-hr"><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2023/10/30/pIFNUBXOcndLK9f.png" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">Sinlin</div><div class="author-info__description">ACMer、音乐人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/sinlinli"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Sinlin的ACM模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.2.</span> <span class="toc-text">基础算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">二维前缀和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">二维差分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">位运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.2.4.</span> <span class="toc-text">双指针算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="toc-number">1.0.2.5.</span> <span class="toc-text">离散化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6"><span class="toc-number">1.0.2.6.</span> <span class="toc-text">区间合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="toc-number">1.0.2.7.</span> <span class="toc-text">单调栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97"><span class="toc-number">1.0.2.8.</span> <span class="toc-text">单调队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.0.2.9.</span> <span class="toc-text">排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.3.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KMP"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">KMP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Trie%E6%A0%91"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">Trie树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">字符串哈希</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#manacher"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">manacher</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.0.3.5.</span> <span class="toc-text">后缀自动机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-number">1.0.3.6.</span> <span class="toc-text">最小表示法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E8%AE%BA"><span class="toc-number">1.0.4.</span> <span class="toc-text">图论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">邻接表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">拓扑排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0dijkstra%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">朴素dijkstra算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E4%BC%98%E5%8C%96%E7%89%88dijkstra"><span class="toc-number">1.0.4.4.</span> <span class="toc-text">堆优化版dijkstra</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bellman-Ford%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E6%9C%89%E8%BE%B9%E6%95%B0%E9%99%90%E5%88%B6%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="toc-number">1.0.4.5.</span> <span class="toc-text">Bellman-Ford算法 —— 有边数限制的最短路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spfa-%E7%AE%97%E6%B3%95%EF%BC%88%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E7%9A%84Bellman-Ford%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-number">1.0.4.6.</span> <span class="toc-text">spfa 算法（队列优化的Bellman-Ford算法）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#spfa%E5%88%A4%E6%96%AD%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B4%9F%E7%8E%AF"><span class="toc-number">1.0.4.7.</span> <span class="toc-text">spfa判断图中是否存在负环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#floyd%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.8.</span> <span class="toc-text">floyd算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E7%89%88prim%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.4.9.</span> <span class="toc-text">朴素版prim算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kruskal%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E6%B1%82%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.0.4.10.</span> <span class="toc-text">Kruskal算法 —— 求最小生成树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%93%E8%89%B2%E6%B3%95%E5%88%A4%E5%88%AB%E4%BA%8C%E5%88%86%E5%9B%BE"><span class="toc-number">1.0.4.11.</span> <span class="toc-text">染色法判别二分图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95-%E2%80%94%E2%80%94-%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"><span class="toc-number">1.0.4.12.</span> <span class="toc-text">匈牙利算法 —— 二分图的最大匹配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E8%AE%BA"><span class="toc-number">1.0.5.</span> <span class="toc-text">数论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E7%AD%9B%E6%B3%95%E6%B1%82%E7%B4%A0%E6%95%B0"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">线性筛法求素数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A6%E6%95%B0%E4%B8%AA%E6%95%B0%E5%92%8C%E7%BA%A6%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">约数个数和约数之和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.5.3.</span> <span class="toc-text">欧几里得算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.5.4.</span> <span class="toc-text">扩展欧几里得算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.5.5.</span> <span class="toc-text">求欧拉函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%9B%E6%B3%95%E6%B1%82%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.5.6.</span> <span class="toc-text">筛法求欧拉函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83"><span class="toc-number">1.0.5.7.</span> <span class="toc-text">高斯消元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E6%8E%A8%E6%B3%95%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.8.</span> <span class="toc-text">递推法求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%A2%84%E5%A4%84%E7%90%86%E9%80%86%E5%85%83%E7%9A%84%E6%96%B9%E5%BC%8F%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.9.</span> <span class="toc-text">通过预处理逆元的方式求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lucas%E5%AE%9A%E7%90%86"><span class="toc-number">1.0.5.10.</span> <span class="toc-text">Lucas定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E8%A7%A3%E8%B4%A8%E5%9B%A0%E6%95%B0%E6%B3%95%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-number">1.0.5.11.</span> <span class="toc-text">分解质因数法求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0-%E2%80%94%E2%80%94-%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%8401%E5%BA%8F%E5%88%97"><span class="toc-number">1.0.5.12.</span> <span class="toc-text">卡特兰数 —— 满足条件的01序列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="toc-number">1.0.6.</span> <span class="toc-text">博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NIM%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">NIM游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E7%BB%84%E5%90%88%E6%B8%B8%E6%88%8FICG"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">公平组合游戏ICG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.3.</span> <span class="toc-text">有向图游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E6%B8%B8%E6%88%8F%E7%9A%84%E5%92%8C-%E2%80%94%E2%80%94-%E6%A8%A1%E6%9D%BF%E9%A2%98-AcWing-893-%E9%9B%86%E5%90%88-Nim%E6%B8%B8%E6%88%8F"><span class="toc-number">1.0.6.3.1.</span> <span class="toc-text">有向图游戏的和 —— 模板题 AcWing 893. 集合-Nim游戏</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E7%90%86"><span class="toc-number">1.0.6.3.2.</span> <span class="toc-text">定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.7.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">并查集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ST%E8%A1%A8"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">ST表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E6%B3%A8%E6%84%8F%E4%B8%8B%E6%A0%87%E4%BB%8E1%E5%BC%80%E5%A7%8B"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">树状数组——注意下标从1开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-number">1.0.7.4.</span> <span class="toc-text">线段树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8C%BA%E9%97%B4%E6%94%B9%E5%8C%BA%E9%97%B4%E6%9F%A5"><span class="toc-number">1.0.7.4.1.</span> <span class="toc-text">区间改区间查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E7%82%B9%E6%9F%A5%E5%8C%BA%E9%97%B4%E6%94%B9"><span class="toc-number">1.0.7.4.2.</span> <span class="toc-text">单点查区间改</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%B8%AD%E6%A0%91%E2%80%94%E2%80%94%E7%AC%ACk%E5%B0%8F"><span class="toc-number">1.0.7.5.</span> <span class="toc-text">主席树——第k小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Treap%E6%A0%91"><span class="toc-number">1.0.7.6.</span> <span class="toc-text">Treap树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LCA"><span class="toc-number">1.0.7.7.</span> <span class="toc-text">LCA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splay"><span class="toc-number">1.0.7.8.</span> <span class="toc-text">splay</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4%E7%BF%BB%E8%BD%AC"><span class="toc-number">1.0.7.8.1.</span> <span class="toc-text">维护区间翻转</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.8.</span> <span class="toc-text">基本数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">单链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">1.0.8.2.</span> <span class="toc-text">双链表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E9%98%9F%E5%88%97"><span class="toc-number">1.0.8.3.</span> <span class="toc-text">普通队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97"><span class="toc-number">1.0.8.4.</span> <span class="toc-text">循环队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">1.0.8.5.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E5%93%88%E5%B8%8C"><span class="toc-number">1.0.8.6.</span> <span class="toc-text">一般哈希</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8B%89%E9%93%BE%E6%B3%95"><span class="toc-number">1.0.8.6.1.</span> <span class="toc-text">拉链法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E5%AF%BB%E5%9D%80%E6%B3%95"><span class="toc-number">1.0.8.6.2.</span> <span class="toc-text">开放寻址法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6"><span class="toc-number">1.0.9.</span> <span class="toc-text">高精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%8C%96%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.10.</span> <span class="toc-text">随机化算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB"><span class="toc-number">1.0.10.1.</span> <span class="toc-text">模拟退火</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%88%AC%E5%B1%B1%E6%B3%95"><span class="toc-number">1.0.10.2.</span> <span class="toc-text">爬山法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%93"><span class="toc-number">1.0.11.</span> <span class="toc-text">库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bitset"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">bitset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rope"><span class="toc-number">1.0.11.2.</span> <span class="toc-text">rope</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="toc-number">1.0.11.2.1.</span> <span class="toc-text">导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.11.2.2.</span> <span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#priority-queue"><span class="toc-number">1.0.11.3.</span> <span class="toc-text">priority_queue</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%BD%A2%E5%8F%82"><span class="toc-number">1.0.11.3.1.</span> <span class="toc-text">模板形参</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.0.11.3.2.</span> <span class="toc-text">构造方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.11.3.3.</span> <span class="toc-text">成员函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tree"><span class="toc-number">1.0.11.4.</span> <span class="toc-text">tree</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sanitizer"><span class="toc-number">1.0.12.</span> <span class="toc-text">Sanitizer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Address-Sanitizer-fsanitize-address"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">Address Sanitizer -fsanitize&#x3D;address</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Undefined-Behavior-Sanitizer-fsanitize-undefined"><span class="toc-number">1.0.12.2.</span> <span class="toc-text">Undefined Behavior Sanitizer -fsanitize&#x3D;undefined</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TODOLIST"><span class="toc-number">1.0.13.</span> <span class="toc-text">TODOLIST</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1694384414.html" title="我的ACM模板">我的ACM模板</a><time datetime="2023-10-30T10:48:11.293Z" title="发表于 2023-10-30 18:48:11">2023-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/63534.html" title="test">test</a><time datetime="2023-10-30T05:12:24.000Z" title="发表于 2023-10-30 13:12:24">2023-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1243066710.html" title="Hello World">Hello World</a><time datetime="2023-10-29T16:07:57.167Z" title="发表于 2023-10-30 00:07:57">2023-10-30</time></div></div></div></div></div></div></main><footer id="footer" style="background:rgb(0,0,0,0)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sinlin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>document.querySelectorAll("#article-container span.katex-display").forEach(a=>{btf.wrap(a,"div",{class:"katex-wrap"})})</script><script>(()=>{const t=t=>"dark"===t?"dark":"light",e=()=>{const e=Object.assign({src:"https://giscus.app/client.js","data-repo":"sinlinli/blog","data-repo-id":"R_kgDOKj7edw","data-category-id":"DIC_kwDOKj7ed84Caij5","data-mapping":"pathname","data-theme":t(document.documentElement.getAttribute("data-theme")),"data-reactions-enabled":"1",crossorigin:"anonymous",async:!0},{"data-mapping":"og:title","data-category":"Announcements","data-lang":"zh-CN"}),a=document.createElement("script");for(let t in e)a.setAttribute(t,e[t]);document.getElementById("giscus-wrap").appendChild(a)};btf.addGlobalFn("themeChange",e=>{(t=>{const e=document.querySelector("iframe.giscus-frame");e&&e.contentWindow.postMessage({giscus:t},"https://giscus.app")})({setConfig:{theme:t(e)}})},"giscus"),btf.loadComment(document.getElementById("giscus-wrap"),e)})()</script></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="#pragma GCC optimize(2),#include &lt;bits/stdc++.h&gt;,#define int ll,cin.tie(0)-&gt;sync_with_stdio(false);,#define endl '
+',return 0;,Accpeted" data-fontsize="15px" data-random="true" async></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/koharu.model.json"},display:{position:"left",width:150,height:300},mobile:{show:!1},react:{opacity:1},log:!1})</script></body></html>
