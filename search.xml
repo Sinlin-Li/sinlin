@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>2018 ICPC青岛站 F. Tournament 题解</title>
+      <link href="/posts/142059176.html"/>
+      <url>/posts/142059176.html</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://codeforces.com/gym/104270/problem/F">https://codeforces.com/gym/104270/problem/F</a></p><p>题目要求输出__最小字典序__的答案</p><p>由于要求每轮每人战斗且仅战斗了一次，不难想到第一轮的情况应该是这样的：</p><blockquote><p>1-2 3-4 5-6 7-8 …</p></blockquote><p>也就是说答案矩阵的第一行为</p><blockquote><p>2 1 4 3 6 5 8 7 …</p></blockquote><p>（似乎是正整数数列以2个数为单位交换)</p><p>在推导第二行的过程中，我们可以发现第二轮只有在4|k的情况下才有解（最后会提到如何判断非法情况）。最小字典序的选法为</p><blockquote><p>3 4 1 2 7 8 5 6</p></blockquote><p>似乎是相邻两个元素交换，打一个表出来</p><blockquote><p>2 1 4 3 6 5 8 7<br>3 4 1 2 7 8 5 6<br>4 3 2 1 8 7 6 5<br>5 6 7 8 1 2 3 4<br>6 5 8 7 2 1 4 3<br>7 8 5 6 3 4 1 2<br>8 7 6 5 4 3 2 1</p></blockquote><p>假设第0行是 1 2 3 4 5 6 7 8</p><p>则后面的每一行分别在前一行的基础上分别按 2 4 2 8 2 4 2 为长度翻转</p><p>所以只需要预处理出这样的数列，实现一个翻转函数依次进行翻转</p><pre><code class="language-cpp">void sswap(int len)&#123;    for(int i=1;i&lt;=1000;i+=len)    &#123;        reverse(tmp+i,tmp+i+len);    &#125;&#125;</code></pre><p>由于最优排列方法是固定的，可以直接生成一个完整的答案矩阵然后取子矩阵输出</p><h5 id="关于无解情况的判断">关于无解情况的判断</h5><p>由于要求两人之间不能进行多场战斗，所以k&gt;n-1时无解</p><p>由于翻转时有可能会引入大于n的数，这样的情况为非法</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>金蛋解谜纪念品</title>
       <link href="/posts/3648086945.html"/>
       <url>/posts/3648086945.html</url>
