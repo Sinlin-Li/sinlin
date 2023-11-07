@@ -1,14 +1,8 @@
-# hexo robots.txt
 User-agent: *
-Allow: /
-Allow: /archives/
-
-Disallow: /vendors/
-Disallow: /js/
+Disallow: /about-me/
+Disallow: /privacy-policy/
+Disallow: /archives/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-
-
-Sitemap: https://sinlin.eu.org/sitemap.xml
-Sitemap: https://sinlin.eu.org/baidusitemap.xml
+Disallow: /img/
+Disallow: /js/
+Sitemap: /sitemap.xml
