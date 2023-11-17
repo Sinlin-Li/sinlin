@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.sinlin.xyz/posts/1694384414.html</loc>
+    <lastmod>2023-11-17</lastmod>
+  </url>
+  <url>
     <loc>https://www.sinlin.xyz/posts/772730134.html</loc>
     <lastmod>2023-11-16</lastmod>
   </url>
@@ -11,9 +15,5 @@
   <url>
     <loc>https://www.sinlin.xyz/posts/3648086945.html</loc>
     <lastmod>2023-10-31</lastmod>
-  </url>
-  <url>
-    <loc>https://www.sinlin.xyz/posts/1694384414.html</loc>
-    <lastmod>2023-10-30</lastmod>
   </url>
 </urlset> 
